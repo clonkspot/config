@@ -1,0 +1,2 @@
+#!/bin/sh
+exec mongod --dbpath ~/mongodb --bind_ip 127.0.0.1 --port 20750 --auth --nohttpinterface --smallfiles 2>&1
