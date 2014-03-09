@@ -1,0 +1,29 @@
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+
+# Redirect subdomains
+RewriteCond %{HTTP_HOST} !=clonkspot.org
+RewriteRule .* https://clonkspot.org%{REQUEST_URI} [R=301,L]
+
+# Redirect HTTP to HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteCond %{ENV:HTTPS} !=on
+RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
+
+# Main page
+RewriteRule ^$ http://localhost:3235/ [P]
+
+# Backend
+RewriteRule ^api/(.*)$ http://localhost:3236/$1 [P]
+
+# Deployd backend
+RewriteRule ^dpd/(.*)$ http://localhost:5326/$1 [P]
+
+# Redirect everything that doesn't exist
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ http://localhost:3235/$1 [P]
+
+# Enable STS for 1/2 year
+Header add Strict-Transport-Security "max-age=15768000"
