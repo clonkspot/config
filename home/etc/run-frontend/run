@@ -10,5 +10,8 @@ export HOME=/home/clnk
 # Include settings.
 . $HOME/env.sh
 
+# Local settings
+export PORT=62681
+
 # Now let's go!
 exec /home/clnk/bin/coffee /home/clnk/deploy/frontend/run.coffee 2>&1

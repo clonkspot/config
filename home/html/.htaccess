@@ -12,10 +12,10 @@ RewriteCond %{ENV:HTTPS} !=on
 RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
 
 # Main page
-RewriteRule ^$ http://localhost:3235/ [P]
+RewriteRule ^$ http://localhost:62681/ [P]
 
 # Backend
-RewriteRule ^api/(.*)$ http://localhost:3236/$1 [P]
+RewriteRule ^api/(.*)$ http://localhost:62682/$1 [P]
 
 # Deployd backend
 RewriteRule ^dpd/(.*)$ http://localhost:5326/$1 [P]
@@ -23,7 +23,7 @@ RewriteRule ^dpd/(.*)$ http://localhost:5326/$1 [P]
 # Redirect everything that doesn't exist
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ http://localhost:3235/$1 [P]
+RewriteRule ^(.*)$ http://localhost:62681/$1 [P]
 
 # Enable STS for 1/2 year
 Header add Strict-Transport-Security "max-age=15768000"
