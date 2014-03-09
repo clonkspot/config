@@ -17,9 +17,6 @@ RewriteRule ^$ http://localhost:62681/ [P]
 # Backend
 RewriteRule ^api/(.*)$ http://localhost:62682/$1 [P]
 
-# Deployd backend
-RewriteRule ^dpd/(.*)$ http://localhost:5326/$1 [P]
-
 # Redirect everything that doesn't exist
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
