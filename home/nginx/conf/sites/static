@@ -1,5 +1,5 @@
 server {
     listen 62695;
-    server_name mwf-data.clonkspot.org dl.clonkspot.org crdocs.clonkspot.org cm.clonkspot.org;
+    server_name mwf-data.clonkspot.org dl.clonkspot.org cm.clonkspot.org;
     root /var/www/virtual/clnk/$host;
 }
