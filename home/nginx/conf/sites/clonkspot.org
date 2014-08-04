@@ -1,0 +1,76 @@
+server {
+    listen 62695;
+    root /var/www/virtual/clnk/html;
+
+    # Redirect non-https requests.
+    if ($http_x_forwarded_https != "on") {
+        return 301 https://clonkspot.org$request_uri;
+    }
+    # Enable STS for 1/2 year
+    add_header Strict-Transport-Security max-age=15768000;
+
+    location / {
+        try_files $uri @frontend;
+    }
+
+    location @frontend {
+        proxy_pass http://localhost:62681;
+    }
+
+    location /api/ {
+        proxy_pass http://localhost:62682/;
+    }
+
+    location = /blog {
+        return 301 https://clonkspot.org/blog/;
+    }
+
+    location /blog/ {
+        index index.php;
+        fastcgi_index index.php;
+        try_files $uri $uri/ /blog/index.php?$args;
+
+        # Directives to send expires headers and turn off 404 error logging.
+        location ~* ^.+\.(ogg|ogv|svg|svgz|eot|otf|woff|mp4|ttf|rss|atom|jpg|jpeg|gif|png|ico|zip|tgz|gz|rar|bz2|doc|xls|exe|ppt|tar|mid|midi|wav|bmp|rtf)$ {
+               access_log off; log_not_found off; expires max;
+        }
+
+        location ~* /(?:uploads|files)/.*\.php$ {
+            deny all;
+        }
+
+        include run-php;
+    }
+
+    location /forum/ {
+        index forum.pl;
+        fastcgi_index forum.pl;
+
+        include fastcgi.conf;
+        fastcgi_pass unix:/home/clnk/mwforum.socket;
+    }
+
+    location /cgi-bin/forum/ {
+        rewrite ^/cgi-bin/forum/(.*).pl$ https://clonkspot.org/forum/$1.pl permanent;
+    }
+
+    location /mwf {
+        rewrite ^/mwf/v\d+/(.*)$ /mwf/$1;
+    }
+
+    location /league/ {
+        index index.php;
+        include run-php;
+    }
+
+    location /test {
+        if ($http_x_forwarded_https != "on") {
+            return 302 https://clonkspot.org$request_uri;
+        }
+        rewrite .* /images/logo.png;
+    }
+
+    location ~ \.htaccess$ {
+        deny all;
+    }
+}

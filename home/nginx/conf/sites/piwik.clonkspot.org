@@ -1,0 +1,8 @@
+server {
+    listen 62695;
+    server_name piwik.clonkspot.org;
+    root /var/www/virtual/clnk/piwik.clonkspot.org;
+
+    index index.php;
+    include run-php;
+}
