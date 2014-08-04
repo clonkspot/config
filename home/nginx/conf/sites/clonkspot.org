@@ -63,13 +63,6 @@ server {
         include run-php;
     }
 
-    location /test {
-        if ($http_x_forwarded_https != "on") {
-            return 302 https://clonkspot.org$request_uri;
-        }
-        rewrite .* /images/logo.png;
-    }
-
     location ~ \.htaccess$ {
         deny all;
     }
