@@ -20,6 +20,8 @@ readlog()
         fi;
 }
 
+alias redis-cli='redis-cli -s /home/clnk/.redis/sock'
+
 # local::lib installation
 eval $(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)
 
