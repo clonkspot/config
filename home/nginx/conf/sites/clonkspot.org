@@ -59,6 +59,10 @@ server {
     }
 
     location /league/ {
+        location ~ (cronjob_.*|config)\.php$ {
+            deny all;
+        }
+
         index index.php;
         include run-php;
     }
