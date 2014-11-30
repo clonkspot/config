@@ -63,6 +63,14 @@ server {
             deny all;
         }
 
+        location ~ game_events.php$ {
+            chunked_transfer_encoding off;
+            fastcgi_buffering off;
+
+            include fastcgi.conf;
+            fastcgi_pass php;
+        }
+
         index index.php;
         include run-php;
     }
