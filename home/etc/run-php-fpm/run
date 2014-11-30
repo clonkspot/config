@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# These environment variables are sometimes needed by the running daemons
+export USER=clnk
+export HOME=/home/clnk
+
+# Include the user-specific profile
+. $HOME/.bash_profile
+
+# Now let's go!
+exec /home/clnk/php-5.6.3/sbin/php-fpm  2>&1
