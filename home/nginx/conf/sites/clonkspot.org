@@ -21,6 +21,15 @@ server {
         proxy_pass http://localhost:62682/;
     }
 
+    location /images/games/Title.png/ {
+        try_files $uri @games-title-notfound;
+        default_type image/png;
+    }
+
+    location @games-title-notfound {
+        return 301 https://clonkspot.org/images/games/nothumb.png;
+    }
+
     location = /blog {
         return 301 https://clonkspot.org/blog/;
     }
