@@ -1,0 +1,7 @@
+server {
+    listen 62695;
+    server_name games-title-upload.clonkspot.org;
+    location / {
+        proxy_pass http://localhost:62213/;
+    }
+}
