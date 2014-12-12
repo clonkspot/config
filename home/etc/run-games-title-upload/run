@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# These environment variables are sometimes needed by the running daemons
+export USER=clnk
+export HOME=/home/clnk
+
+# Include the user-specific profile
+. $HOME/.bash_profile
+
+export PORT=62213
+
+cd $HOME/html/images/games/Title.png/incoming
+
+# Now let's go!
+exec /home/clnk/deploy/games-title-upload  2>&1
