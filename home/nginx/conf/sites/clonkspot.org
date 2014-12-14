@@ -22,8 +22,16 @@ server {
     }
 
     location /images/games/Title.png/ {
-        try_files $uri @games-title-notfound;
         default_type image/png;
+
+        location ~ /incoming/ {
+            try_files $uri @games-title-notfound;
+        }
+
+        if (!-f $document_root$uri) {
+            # No official image => try the user upload folder.
+            rewrite (.*/Title.png)/(.*)$ $1/incoming/$2 last;
+        }
     }
 
     location @games-title-notfound {
@@ -88,3 +96,4 @@ server {
         deny all;
     }
 }
+# vim: ft=nginx
