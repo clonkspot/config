@@ -3,15 +3,11 @@ server {
     server_name mwf-data.clonkspot.org;
     root /var/www/virtual/clnk/$host;
 
-    # Cache as much as possible.
-    expires max;
+    # Text files are UTF-8. Browsers default to Latin1.
+    charset utf-8;
 
     # Allow CORS access from the main site.
     add_header Access-Control-Allow-Origin https://clonkspot.org;
 
-    location /xml {
-	# Don't specify caching for feeds.
-	expires off;
-    }
 }
 # vim: ft=nginx
