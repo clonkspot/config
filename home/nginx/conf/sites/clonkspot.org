@@ -73,6 +73,7 @@ server {
 
     location /mwf {
         rewrite ^/mwf/v\d+/(.*)$ /mwf/$1;
+        expires max;
     }
 
     location /league/ {
