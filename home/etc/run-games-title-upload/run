@@ -10,6 +10,8 @@ export HOME=/home/clnk
 export PORT=62213
 export UPLOAD_PREFIX=./incoming
 export INTERNAL_PREFIX=/games-title-dl/
+export REDIS_NETWORK=unix
+export REDIS_ADDRESS=$HOME/.redis/sock
 
 cd $HOME/html/images/games/Title.png
 
