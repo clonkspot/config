@@ -8,8 +8,10 @@ export HOME=/home/clnk
 . $HOME/.bash_profile
 
 export PORT=62213
+export UPLOAD_PREFIX=./incoming
+export INTERNAL_PREFIX=/games-title-dl/
 
-cd $HOME/html/images/games/Title.png/incoming
+cd $HOME/html/images/games/Title.png
 
 # Now let's go!
-exec /home/clnk/deploy/games-title-upload  2>&1
+exec /home/clnk/bin/games-title-upload  2>&1

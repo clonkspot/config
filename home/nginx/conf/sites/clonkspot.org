@@ -22,16 +22,16 @@ server {
     }
 
     location /images/games/Title.png/ {
+        proxy_pass http://localhost:62213/;
+        proxy_intercept_errors on;
+        error_page 404 https://clonkspot.org/images/games/nothumb.png;
+    }
+
+    location /games-title-dl/ {
+        # This route is hit by X-Accel-Redirect in the handler above.
+        internal;
+        alias /var/www/virtual/clnk/html/images/games/Title.png/;
         default_type image/png;
-
-        location ~ /incoming/ {
-            try_files $uri @games-title-notfound;
-        }
-
-        if (!-f $document_root$uri) {
-            # No official image => try the user upload folder.
-            rewrite (.*/Title.png)/(.*)$ $1/incoming/$2 last;
-        }
     }
 
     location @games-title-notfound {
