@@ -31,7 +31,6 @@ server {
         # This route is hit by X-Accel-Redirect in the handler above.
         internal;
         alias /var/www/virtual/clnk/html/images/games/Title.png/;
-        default_type image/png;
     }
 
     location @games-title-notfound {
