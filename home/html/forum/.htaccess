@@ -1,9 +1,0 @@
-Options +ExecCGI
-AddHandler cgi-script .pl
-DirectoryIndex forum.pl
-
-# Deny downloading of Perl modules
-<Files *.pm>
-  Order allow,deny
-  Deny from all
-</Files>

@@ -1,3 +1,0 @@
-# Alias for the forum.
-RewriteEngine On
-RewriteRule (.*) https://clonkspot.org/forum/$1 [L,R=permanent]

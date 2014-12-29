@@ -1,3 +1,0 @@
-# The forum moved to /forum
-RewriteEngine On
-RewriteRule (.*) /forum/$1 [L,R=permanent]
