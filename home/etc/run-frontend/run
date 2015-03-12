@@ -14,4 +14,4 @@ export HOME=/home/clnk
 export PORT=62681
 
 # Now let's go!
-exec /home/clnk/bin/coffee /home/clnk/deploy/frontend/run.coffee 2>&1
+exec node /home/clnk/deploy/frontend/run.js 2>&1
