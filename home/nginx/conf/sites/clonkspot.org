@@ -88,6 +88,8 @@ server {
             fastcgi_pass php;
         }
 
+        rewrite ^/league/(\w+)/(\w+)$ /league/index.php?part=$1&method=$2;
+
         index index.php;
         include run-php;
     }
