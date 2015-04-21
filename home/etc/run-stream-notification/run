@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# These environment variables are sometimes needed by the running daemons
+export USER=clnk
+export HOME=/home/clnk
+
+# Include the user-specific profile
+source $HOME/.bash_profile
+
+export PORT=62214
+export TWITCH_CLIENT_ID=n3lxwz3d8i8k3nz725j1152al2mjuf8
+export CHANNELS=Nachtfalter89,wasserwipf
+export GAME_FILTER=Clonk
+
+# Now let's go!
+exec /home/clnk/deploy/stream-notification  2>&1

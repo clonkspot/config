@@ -17,6 +17,10 @@ server {
         proxy_pass http://localhost:62681;
     }
 
+    location /api/stream-notification/ {
+        proxy_pass http://localhost:62214/;
+    }
+
     location /api/ {
         proxy_pass http://localhost:62682/;
     }
