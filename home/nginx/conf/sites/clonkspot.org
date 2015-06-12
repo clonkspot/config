@@ -80,7 +80,7 @@ server {
     }
 
     location /league/ {
-        location ~ (cronjob_.*|config)\.php$|/(configs|logs|template_c)/ {
+        location ~ (cronjob_.*|config)\.php$|/(configs|logs|template_c|.git)/ {
             deny all;
         }
 
