@@ -11,6 +11,8 @@ export PORT=62214
 export TWITCH_CLIENT_ID=n3lxwz3d8i8k3nz725j1152al2mjuf8
 export CHANNELS=Nachtfalter89,wasserwipf
 export GAME_FILTER=Clonk
+export REDIS_NETWORK=unix
+export REDIS_ADDRESS=$HOME/.redis/sock
 
 # Now let's go!
 exec /home/clnk/deploy/stream-notification  2>&1
