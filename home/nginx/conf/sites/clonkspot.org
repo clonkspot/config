@@ -98,6 +98,12 @@ server {
         include run-php;
     }
 
+    location = /openclonk-league/poll_game_events.php {
+        chunked_transfer_encoding off;
+        proxy_buffering off;
+        proxy_pass http://league.openclonk.org/poll_game_events.php;
+    }
+
     location ~ \.htaccess$ {
         deny all;
     }
