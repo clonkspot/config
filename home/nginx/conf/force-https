@@ -1,0 +1,8 @@
+# Redirect non-https requests.
+if ($http_x_forwarded_https != "on") {
+    return 301 https://$host$request_uri;
+}
+# Enable STS for 1/2 year
+add_header Strict-Transport-Security max-age=15768000;
+
+# vim: ft=nginx

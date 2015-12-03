@@ -3,5 +3,7 @@ server {
     server_name crdocs.clonkspot.org;
     root /var/www/virtual/clnk/$host;
     include letsencrypt;
+    include force-https;
     include run-php;
 }
+# vim: ft=nginx

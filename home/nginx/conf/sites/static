@@ -2,5 +2,7 @@ server {
     listen 62695;
     server_name dl.clonkspot.org cm.clonkspot.org;
     include letsencrypt;
+    include force-https;
     root /var/www/virtual/clnk/$host;
 }
+# vim: ft=nginx
