@@ -2,6 +2,7 @@ server {
     listen 62695;
     server_name league.clonkspot.org;
     root /var/www/virtual/clnk/html/league;
+    include letsencrypt;
 
     location / {
         rewrite .* /league.php;

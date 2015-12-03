@@ -2,5 +2,6 @@ server {
     listen 62695;
     server_name crdocs.clonkspot.org;
     root /var/www/virtual/clnk/$host;
+    include letsencrypt;
     include run-php;
 }

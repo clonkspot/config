@@ -1,5 +1,6 @@
 server {
     listen 62695;
     server_name forum.clonkspot.org;
+    include letsencrypt;
     return 301 https://clonkspot.org/forum/forum.pl;
 }

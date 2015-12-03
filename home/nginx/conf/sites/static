@@ -1,5 +1,6 @@
 server {
     listen 62695;
     server_name dl.clonkspot.org cm.clonkspot.org;
+    include letsencrypt;
     root /var/www/virtual/clnk/$host;
 }

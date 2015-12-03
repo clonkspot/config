@@ -1,0 +1,8 @@
+# Let's Encrypt include to use a single directory for everything.
+
+location /.well-known/acme-challenge/ {
+    root /var/www/virtual/clnk/letsencrypt/;
+    try_files $uri =404;
+}
+
+# vim: set ft=nginx:
