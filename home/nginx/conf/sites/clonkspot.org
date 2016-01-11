@@ -98,6 +98,25 @@ server {
         include run-php;
     }
 
+    location /league2/ {
+        location ~ (cronjob_.*|config)\.php$|/(configs|logs|template_c|.git)/ {
+            deny all;
+        }
+
+        location ~ game_events.php$ {
+            chunked_transfer_encoding off;
+            fastcgi_buffering off;
+
+            include fastcgi.conf;
+            fastcgi_pass php;
+        }
+
+        rewrite ^/league2/(\w+)/(\w+)$ /league2/index.php?part=$1&method=$2;
+
+        index index.php;
+        include run-php;
+    }
+
     location = /openclonk-league/poll_game_events.php {
         chunked_transfer_encoding off;
         proxy_buffering off;

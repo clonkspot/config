@@ -1,0 +1,12 @@
+server {
+    listen 62695;
+    server_name league2.clonkspot.org;
+    root /var/www/virtual/clnk/html/league2;
+    include letsencrypt;
+
+    location / {
+        rewrite .* /league.php;
+    }
+
+    include run-php;
+}
