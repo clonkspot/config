@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# These environment variables are sometimes needed by the running daemons
+export USER=clnk
+export HOME=/home/clnk
+
+# Include the user-specific profile
+source $HOME/.bash_profile
+
+cd $HOME/deploy/crema
+
+# Now let's go!
+exec bundle exec thin start --socket /home/clnk/tmp/crema.sock 2>&1

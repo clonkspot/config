@@ -1,0 +1,9 @@
+server {
+    listen 62695;
+    server_name crema.clonkspot.org;
+    include force-https;
+    location / {
+        proxy_pass http://unix:/home/clnk/tmp/crema.sock;
+    }
+}
+# vim: ft=nginx
