@@ -16,4 +16,4 @@ export REDIS_ADDRESS=$HOME/.redis/sock
 cd $HOME/html/images/games/Title.png
 
 # Now let's go!
-exec /home/clnk/bin/games-title-upload  2>&1
+exec /home/clnk/deploy/games-title-upload  2>&1
