@@ -29,6 +29,9 @@ server {
         proxy_pass http://localhost:62213/;
         proxy_intercept_errors on;
         error_page 404 https://clonkspot.org/images/games/nothumb.png;
+        if ($uri ~ "\.ocs$") {
+            error_page 404 https://clonkspot.org/images/games/nothumb_oc.png;
+        }
     }
 
     location /games-title-dl/ {
