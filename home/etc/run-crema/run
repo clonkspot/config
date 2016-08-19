@@ -9,5 +9,7 @@ source $HOME/.bash_profile
 
 cd $HOME/deploy/crema
 
+bundle install
+
 # Now let's go!
 exec bundle exec thin start --socket /home/clnk/tmp/crema.sock 2>&1
